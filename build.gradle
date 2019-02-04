@@ -1,0 +1,42 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+
+buildscript {
+    ext.kotlin_version = '1.3.20'
+
+    ext {
+        kotlin_version = '1.3.20'
+    }
+
+    repositories {
+        google()
+        jcenter()
+
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.3.0'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+allprojects {
+    version = 1.0
+    group = "com.minikorp.grove"
+
+    repositories {
+        jcenter()
+        mavenCentral()
+        google()
+    }
+}
+
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}
