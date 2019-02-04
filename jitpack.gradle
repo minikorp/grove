@@ -3,17 +3,18 @@ apply plugin: 'com.github.dcendents.android-maven'
 version = 1.0
 group = 'com.github.minikorp'
 
-buildscript {
-    classpath 'com.github.dcendents:android-maven-gradle-plugin:2.1'
-}
-
 repositories {
     maven { url 'https://jitpack.io' }
 }
 
-task sourcesJar(type: Jar, dependsOn: classes) {
+task sourcesJar(type: Jar) {
     classifier = 'sources'
-    from sourceSets.main.allSource
+    from android.sourceSets.main.java.sourceFiles
+}
+
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.sourceFiles
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
 }
 
 task javadocJar(type: Jar, dependsOn: javadoc) {
@@ -21,7 +22,12 @@ task javadocJar(type: Jar, dependsOn: javadoc) {
     from javadoc.destinationDir
 }
 
+task classesJar(type: Jar) {
+    from "$buildDir/intermediates/classes/release"
+}
+
 artifacts {
-    archives sourcesJar
+    archives classesJar
     archives javadocJar
+    archives sourcesJar
 }
