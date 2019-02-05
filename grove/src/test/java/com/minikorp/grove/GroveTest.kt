@@ -35,6 +35,6 @@ class GroveTest {
         fileLogTree.close()
         val writtenText = fileLogTree.file.readText()
         writtenText `should contain` testString
-        writtenText.lines().size `should be equal to` 2
+        writtenText.lines().filter { it.isNotEmpty() }.size `should be equal to` 2
     }
 }

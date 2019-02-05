@@ -1,3 +1,5 @@
+//Add at bottom of file as apply from: "../jitpack-android.gradle"
+
 apply plugin: 'com.github.dcendents.android-maven'
 
 version = 1.0
