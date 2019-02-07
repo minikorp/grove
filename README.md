@@ -9,5 +9,8 @@ allprojects {
   }
 }
   
-implementation 'com.github.minikorp:grove:1.0.3'
+implementation 'com.github.minikorp:grove:LATEST_VERSION'
 ```
+
+[![](https://jitpack.io/v/minikorp/grove.svg)](https://jitpack.io/#minikorp/grove)
+
